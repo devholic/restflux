@@ -1,5 +1,6 @@
 package io.devholic.restflux.core.context
 
+import io.devholic.restflux.core.RestfluxContext
 import io.devholic.restflux.core.response.*
 import io.netty.buffer.ByteBuf
 import io.reactivex.netty.protocol.http.server.HttpServerResponse
@@ -11,7 +12,7 @@ private val restflux = "restflux"
 
 private fun HttpServerResponse<ByteBuf>.addDefaultHeader() {
     addDateHeader(Header.Date.value, Date())
-    addHeader(Header.Server.value, "$restflux/RestfluxContext.version")
+    addHeader(Header.Server.value, "$restflux/${RestfluxContext.version}")
 }
 
 fun RequestContext.send(
