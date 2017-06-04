@@ -9,7 +9,6 @@ data class RequestContext(
     val req: HttpServerRequest<ByteBuf>,
     val res: HttpServerResponse<ByteBuf>,
     var params: Map<String, String> = emptyMap(),
-    var paramEntity: Any? = null,
     var payload: HashMap<String, Any> = hashMapOf(),
     var isDone: Boolean = false
 )
