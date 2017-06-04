@@ -11,7 +11,7 @@ import io.netty.handler.codec.http.HttpResponseStatus
 import rx.Observable
 
 
-abstract class Route(val path: Path, val middlewares: List<RestfluxMiddleware> = emptyList()) {
+abstract class RestfluxRoute(val path: Path, val middlewares: List<RestfluxMiddleware> = emptyList()) {
 
     open fun handleRequest(ctx: RequestContext): Observable<Void> =
         Observable.just(ctx)

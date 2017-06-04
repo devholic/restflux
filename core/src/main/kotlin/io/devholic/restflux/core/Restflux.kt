@@ -7,7 +7,7 @@ import io.devholic.restflux.core.middleware.ContentTypeFilterMiddleware
 import io.devholic.restflux.core.middleware.RestfluxMiddleware
 import io.devholic.restflux.core.middleware.concat
 import io.devholic.restflux.core.response.RestfluxStatusResponse
-import io.devholic.restflux.core.route.Route
+import io.devholic.restflux.core.route.RestfluxRoute
 import io.netty.buffer.ByteBuf
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.reactivex.netty.protocol.http.server.HttpServer
@@ -21,7 +21,7 @@ class Restflux(
         listOf(
             ContentTypeFilterMiddleware()
         ),
-    val routes: List<Route>
+    val routes: List<RestfluxRoute>
 ) {
 
     init {
