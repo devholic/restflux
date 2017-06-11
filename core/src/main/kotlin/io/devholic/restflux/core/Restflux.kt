@@ -38,7 +38,7 @@ class Restflux(
 """
     private var server: HttpServer<ByteBuf, ByteBuf>? = null
 
-    fun start() {
+    fun start(doOnShutdown: () -> Unit = {}) {
         print(asciiArt)
         server = HttpServer.newServer(port)
             .start {
@@ -56,6 +56,7 @@ class Restflux(
                     }
             }
         server?.awaitShutdown()
+        doOnShutdown()
     }
 
     fun shutdown() {
