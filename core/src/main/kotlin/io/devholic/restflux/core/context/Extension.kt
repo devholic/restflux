@@ -13,7 +13,13 @@ private val restflux = "restflux"
 
 inline fun <reified T> RequestContext.parseBody(charset: Charset = Charsets.UTF_8): Observable<T> =
     req.content
-        .map { it.toString(charset) }
+        .map {
+            content ->
+            content.toString(charset)
+                .apply {
+                    content.release()
+                }
+        }
         .flatMap {
             body ->
             Observable.fromCallable {
