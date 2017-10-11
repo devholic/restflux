@@ -27,6 +27,6 @@ restflux uses following libraries.
 
 - gson
 - kotlin
-- RxNetty
+- [RxNetty](https://github.com/ReactiveX/RxNetty)
 
 You can check license of these libraries at [here](license).
